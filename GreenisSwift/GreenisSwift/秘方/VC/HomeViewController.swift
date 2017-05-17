@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import SVProgressHUD
+import Alamofire
 
 class HomeViewController: UIViewController {
 
@@ -16,6 +18,7 @@ class HomeViewController: UIViewController {
         self.view.backgroundColor = UIColor.white
         self.createSearchBtn()
         self.createTableView()
+//        SVProgressHUD.show(withStatus: "sss")
     }
     
     func createTableView() -> Void {
