@@ -6,5 +6,7 @@ target "GreenisSwift" do
 pod 'SVProgressHUD'
 pod 'Alamofire'
 pod 'SwiftyJSON'
+pod 'AFNetworking'
+
 
 end

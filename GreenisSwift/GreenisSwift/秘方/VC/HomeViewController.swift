@@ -8,7 +8,7 @@
 
 import UIKit
 import SVProgressHUD
-import Alamofire
+import AFNetworking
 
 class HomeViewController: UIViewController {
 
@@ -18,6 +18,7 @@ class HomeViewController: UIViewController {
         self.view.backgroundColor = UIColor.white
         self.createSearchBtn()
         self.createTableView()
+        self.updata()
 //        SVProgressHUD.show(withStatus: "sss")
     }
     
@@ -28,6 +29,29 @@ class HomeViewController: UIViewController {
         tableView.tableHeaderView = headerView;
         tableView.endUpdates()
         
+    }
+    
+   func updata() -> Void{
+
+    let dic:[String: Any] = ["a":"list", "c":"data","client":"iphone","page":"0","per":"10", "type":"29"]
+    
+    let parameters = ["page":"1", "pageSize":"10"]
+    NetWorkTools.shareInstance.post("https://app-cn.greenis-service.com.cn:1900/smartkitchenappswebapi/v1/resource/article/frontpage/slide/list/index.ashx", parameters: parameters, progress: { (Progress) in
+        
+    }, success: { (URLSessionDataTask, objc) in
+        
+        print(objc)
+        
+    }) { (URLSessionDataTask, error) in
+        print(error)
+    }
+    
+//    KKHttpManager.manager.postRequest(urlString: "http://api.budejie.com/api/api_open.php", params: dic, success: { (resurt) in
+//        
+//    }) { (error) in
+//        
+//    }
+//    
     }
     
     fileprivate lazy var headerView: UIView = {
